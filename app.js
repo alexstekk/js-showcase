@@ -20,12 +20,10 @@ let order = [];
 
 function addToBasket(productId) {
 	// TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
-	if (order.find((item) => item.id === productId)) {
-		return alert('товар уже в корзине');
-	}
+	if (order.find((item) => item.id === productId)) return alert('товар уже в корзине');
 	// TODO: если товар еще не в корзине, добавить его из массива products
-	const currentProduct = products.find((item) => item.id === productId);
-	order = [...order, currentProduct];
+	const product = products.find((item) => item.id === productId);
+	order = [...order, product];
 	// Эти строчки не трогаем, они отвечают за переотрисовку страницы
 	renderCart();
 	rerenderTotalPrice();
@@ -33,7 +31,7 @@ function addToBasket(productId) {
 
 function removeFromBasket(productId) {
 	// TODO: описать логику удаления товара из корзины
-	order = order.filter(item => item.id !== productId);
+	order = order.filter((item) => item.id !== productId);
 	// Эти строчки не трогаем, они отвечают за переотрисовку страницы
 	renderCart();
 	rerenderTotalPrice();
@@ -41,9 +39,23 @@ function removeFromBasket(productId) {
 
 function rerenderTotalPrice() {
 	// TODO: опишите функционал подсчета общей стоимости заказа
-	const totalPrice = order.reduce((acc, item) => {
-		return acc + item.price
-	}, 0);
+
+	const totalPrice = order.reduce((acc, item) => acc + item.price, 0);
+
+	// let totalPrice = 0;
+	// if (order.length) {
+	// 	for (let item of order) {
+	// 		totalPrice += item.price;
+	// 	}
+	// }
+
+	// let totalPrice = 0;
+	// if (order.length) {
+	// 	order.forEach((item) => {
+	// 		totalPrice += item.price;
+	// 	});
+	// }
+
 	// Не меняйте эту строчку
 	document.getElementById('total').innerText = totalPrice;
 }
