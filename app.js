@@ -20,9 +20,11 @@ let order = [];
 
 function addToBasket(productId) {
 	// TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
-
+	if (order.find((product) => product.id === productId)) {
+		return alert('Товар уже в корзине');
+	}
 	// TODO: если товар еще не в корзине, добавить его из массива products
-
+	order = [...order, products.find((product) => product.id === productId)];
 	// Эти строчки не трогаем, они отвечают за переотрисовку страницы
 	renderCart();
 	rerenderTotalPrice();
@@ -30,7 +32,7 @@ function addToBasket(productId) {
 
 function removeFromBasket(productId) {
 	// TODO: описать логику удаления товара из корзины
-
+	order = order.filter((product) => product.id !== productId);
 	// Эти строчки не трогаем, они отвечают за переотрисовку страницы
 	renderCart();
 	rerenderTotalPrice();
@@ -38,7 +40,7 @@ function removeFromBasket(productId) {
 
 function rerenderTotalPrice() {
 	// TODO: опишите функционал подсчета общей стоимости заказа
-
+	const totalPrice = order.reduce((total, product) => total + product.price,0);
 	// Не меняйте эту строчку
 	document.getElementById('total').innerText = totalPrice;
 }
