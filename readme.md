@@ -1,9 +1,14 @@
-Есть небольшая страничка со списком товаров и корзиной.
+# Showcase
 
-В app.js есть массив products со списком товаров со страницы и массив order, куда должны добавляться товары по клику на кнопку "Buy".
+## Description 
+Simple showcase
 
-На кнопках уже висят обработчики клика, вызывающие функцию addToBasket с передачей в нее id товара. Необходимо доработать эту функцию, чтобы товары добавлялись в массив заказа, при этом один и тот же товар нельзя было добавить в заказ дважды.
+## Stack
+<p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
+  <img width="12" />
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=white&style=for-the-badge" height="40" alt="javascript logo"  />
 
-При добавлении в корзину товар автоматически будет отрисовываться на странице. А при клике на его имя в корзине будет вызываться функция removeFromBasket. Необходимо доработать ее функционал, чтобы  товар удалялся из корзины.
-
-Метод rerenderTotalPrice отвечает за расчет общей стоимости товаров в корзине, которая также выводится на страницу. Необходимо описать функционал перерасчета общей суммы.
+</p>
